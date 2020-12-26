@@ -4,9 +4,10 @@
 #same audio simultaneously.
 #two notes:
 #at first it was difficult to get primary_output sink to always map to headphones if
-#plugged in, so now that's forced by the set_sink function
+#plugged in, so now that's forced by set-sink-port 0 in the set_sink function
 #also it started mapping the source to both primary_output and deep_buffer which caused
 #funky artefacts in the headphones (in particular the deep_buffer has larger latency).
+#that should be fixed now by set-sink-mute, also in set_sink function
 #this should now also be fixed
 function set_sink {
 	echo "Setting default sink to $1";
