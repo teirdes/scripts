@@ -9,6 +9,9 @@
 #funky artefacts in the headphones (in particular the deep_buffer has larger latency).
 #that should be fixed now by set-sink-mute, also in set_sink function
 #this should now also be fixed
+#note that sink names (esp for index 0 and 1) are the standard ones for sailfishos
+#pulseaudio. also fingerterm does not require (in fact does not work with) a bin/bash
+#indication so that's also not here. 
 function set_sink {
 	echo "Setting default sink to $1";
 	pacmd set-default-sink $1
