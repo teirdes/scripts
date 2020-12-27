@@ -20,7 +20,7 @@ function set_sink {
 	do
 		echo "Moving input:";
 		echo $line | cut -f2 -d' ';
-		echo "to sink $sink_number";
+		echo "to sink $1";
 		pacmd move-sink-input `echo $line | cut -f2 -d' '` $1
 		pacmd set-sink-mute 1 1
 	done
