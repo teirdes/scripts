@@ -26,10 +26,10 @@ function set_sink {
 	done
 }
 sink_number=`pacmd list-sinks | grep -B 1 "combined" | cut -f1 | grep -Eo ".$"`
-if pacmd list-sinks  | grep -q combined";
+if pacmd list-sinks  | grep -q "combined";
 then set_sink $sink_number
 else find_bt_sink_name=`pacmd list-sinks | grep "bluez_sink" | cut -f2`
-	mac_address=`echo "{find_bt_sink_name:1}"`
+	mac_address=`echo ${find_bt_sink_name:1}`
 	pacmd load-module module-combine-sink sink_name=combined sink_properties=device.description=CombinedSink slaves=sink.primary_output,bluez_sink.$mac_addressa2dp_sink
 	set_sink $sink_number
 fi
